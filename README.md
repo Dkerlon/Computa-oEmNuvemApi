@@ -1,6 +1,38 @@
 # Arquivo
 
-Gerenciador privado de arquivos com React, API Express e MongoDB Atlas GridFS. Inclui pastas, busca, favoritos, lixeira, downloads e links de compartilhamento com validade de 7 dias.
+Gerenciador privado de arquivos com React, API Express e MongoDB Atlas GridFS.
+
+## Funcionalidades
+
+### Acesso e armazenamento
+
+- Entrada com uma senha própria do aplicativo (`APP_PASSWORD`) e sessão em cookie HTTP-only; opção de sair da conta.
+- Arquivos e metadados armazenados no MongoDB Atlas. O conteúdo dos arquivos usa GridFS.
+- Modo local para desenvolvimento quando `MONGODB_HOST` está vazio. Nesse modo, arquivos e metadados ficam em `.local-data/`.
+- Indicador de espaço utilizado em relação aos 512 MB do plano gratuito do Atlas.
+
+### Arquivos e pastas
+
+- Envio de um ou vários arquivos pela mesma seleção; cada arquivo é enviado separadamente e pode ter até 4 MB.
+- Criação de pastas, inclusive dentro de outras pastas, e navegação pela estrutura.
+- Visualização dos itens em lista ou grade, com nome, tipo, data de modificação e tamanho.
+- Painel de detalhes com tipo, tamanho e datas de criação e modificação.
+- Download de arquivos, renomeação de arquivos e pastas e movimentação entre pastas.
+- Busca por nome de arquivo ou pasta e atalho `Ctrl/Cmd + K` para focar a busca.
+- Áreas **Todos os arquivos**, **Recentes**, **Favoritos**, **Compartilhados** e **Lixeira**.
+- Marcação e remoção de favoritos.
+- Envio para a lixeira, restauração e exclusão permanente com confirmação. Ao excluir uma pasta permanentemente, seu conteúdo também é removido.
+
+### Compartilhamento
+
+- Criação de link público de download para um arquivo, copiado automaticamente para a área de transferência.
+- Link válido por 7 dias; quem tiver o link pode baixar o arquivo sem entrar no aplicativo.
+- Desativação do link pelo painel de detalhes. Gerar um novo link substitui o anterior.
+
+### Interface
+
+- Layout responsivo para computador e celular, com menu lateral recolhido em telas pequenas.
+- Estados vazios, avisos de sucesso ou erro e indicação clara quando o aplicativo está no modo local.
 
 ## Rodar no computador
 
